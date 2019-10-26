@@ -3,7 +3,7 @@ from PyQt4.QtGui import QApplication
 from PyQt4.QtCore import QUrl 
 from PyQt4.QtWebKit import QWebPage 
 import bs4 as bs 
-import urllib.request 
+#import urllib.request
 
  
 class Client(QWebPage): 
@@ -30,7 +30,9 @@ class Client(QWebPage):
 url = 'https://pythonprogramming.net/parsememcparseface/' 
 client_response = Client(url) 
 source = client_response.mainFrame().toHtml() 
+source = unicode(source)
 soup = bs.BeautifulSoup(source, 'lxml') 
 js_test = soup.find('p', class_='jstest') 
 
-print(js_test.text) 
+print(js_test.text)
+#print(source) 
